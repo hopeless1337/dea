@@ -97,10 +97,10 @@ class Constants {
             'WEBHOOKS_UPDATE'
           ]
         },
-        game: '$help',
-        prefix: '$',
-        botOwners: ['Luner#0059', 'Ash#8999'],
-        ownerIds: ['226736342745219072', '271424970796564490']
+        game: '\$help',
+        prefix: '\$',
+        botOwners: ['hopeless#1227'],
+        ownerIds: ['167001304672108544']
       },
 
       regexes: {
