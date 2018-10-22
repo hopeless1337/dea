@@ -61,7 +61,7 @@ class Constants {
           '7-Eleven', 'Speedway', 'Couche-Tard', 'QuikTrip', 'Kroger', 'Circle K', 'Admiral Petroleum', 'Big Apple', 'Bucky\'s Express'
         ],
         itemBreaking: [
-          'you almost fucked up some hobo\'s cock off with that broken {0}',
+          'you almost fucked up some hobo\'s cock with that broken {0}',
           'you hit some hobo\'s dick but his rock hard boner shattered your {0}',
           'that rusty old {0} that your grandpa gave you broke faster than I could nut',
           'out of nowhere your fat teacher comes and confiscates your {0}',
@@ -71,6 +71,12 @@ class Constants {
           'the {0} hit socrates instead, he then turned it into a shit server and it broke.',
           'you got horny and tried to use {0} as a dildo, but you got it stuck and couldn\'t get it out.'
         ]
+      },
+
+      numbers: {
+        thousand: 1000,
+        million: 1000000,
+        billion: 1000000000
       },
 
       misc: {
@@ -122,6 +128,12 @@ class Constants {
         min: 500
       },
 
+      double: {
+        min: 1000,
+        maxWins: 5,
+        odds: 60
+      },
+
       investments: {
         line: {
           cost: 1000,
@@ -136,8 +148,13 @@ class Constants {
           description: 'A kilo of cocaine is more than enough to quadruple your cash per message.'
         },
         convoy: {
+          cost: 25000,
+          description: 'A fleet of ships will help distribute your drugs even faster, reducing all of your cooldowns by 5%.'
+        },
+        snowcap: {
           cost: 50000,
-          description: 'These bad boys help distribute your drugs even faster, reducing all of your cooldowns by 5%.'
+          description: 'A combination of brick and weed is enough to revive you one time.',
+          time: 259200000
         }
       },
 
@@ -173,7 +190,7 @@ class Constants {
         maxLength: 32
       },
 
-      reducedCooldown: 0.05,
+      reducedCooldown: 0.1,
 
       gang: {
         min: 500,

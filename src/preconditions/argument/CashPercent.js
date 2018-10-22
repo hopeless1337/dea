@@ -13,11 +13,15 @@ class CashPercent extends patron.ArgumentPrecondition {
     const cashValue = NumberUtil.realValue(dbUser.cash);
     const rounded = NumberUtil.round(cashValue * options.percent, 2);
 
-    if (rounded >= value) {
+    if (argument.typeReader.inputtedAll) {
+      args[argument.name + '-all'] = rounded;
+
+      return patron.PreconditionResult.fromSuccess();
+    } else if (rounded >= value) {
       return patron.PreconditionResult.fromSuccess();
     }
 
-    return patron.PreconditionResult.fromError(command, 'The maximum percent of ' + argument.name + ' is ' + options.percent * 100 + '%, that is ' + rounded.USD() + '.');
+    return patron.PreconditionResult.fromError(command, 'the maximum percent of ' + argument.name + ' is ' + options.percent * 100 + '%, that is ' + rounded.USD() + '.');
   }
 }
 

@@ -4,7 +4,6 @@ const UserRepository = require('./repositories/UserRepository.js');
 const GuildRepository = require('./repositories/GuildRepository.js');
 const MuteRepository = require('./repositories/MuteRepository.js');
 const BlacklistRepository = require('./repositories/BlacklistRepository.js');
-const BotOwnerRepository = require('./repositories/BotOwnerRepository.js');
 const GangRepository = require('./repositories/GangRepository.js');
 const PollRepository = require('./repositories/PollRepository.js');
 
@@ -12,7 +11,6 @@ class Database {
   constructor() {
     this.queries = {
       Blacklist: require('./queries/BlacklistQuery.js'),
-      BotOwners: require('./queries/BotOwnersQuery.js'),
       Guild: require('./queries/GuildQuery.js'),
       Id: require('./queries/IdQuery.js'),
       Mute: require('./queries/MuteQuery.js'),
@@ -31,7 +29,6 @@ class Database {
 
     this.models = {
       Blacklist: require('./models/Blacklist.js'),
-      BotOwners: require('./models/BotOwners.js'),
       Guild: require('./models/Guild.js'),
       Mute: require('./models/Mute.js'),
       User: require('./models/User.js'),
@@ -46,7 +43,6 @@ class Database {
     const db = connection.db(connection.s.options.dbName);
 
     this.blacklistRepo = new BlacklistRepository(await db.createCollection('blacklists'));
-    this.botownerRepo = new BotOwnerRepository(await db.createCollection('botowners'));
     this.guildRepo = new GuildRepository(await db.createCollection('guilds'));
     this.muteRepo = new MuteRepository(await db.createCollection('mutes'));
     this.userRepo = new UserRepository(await db.createCollection('users'));
@@ -54,7 +50,6 @@ class Database {
     this.pollRepo = new PollRepository(await db.createCollection('polls'));
 
     await db.collection('blacklists').createIndex('userId', { unique: true });
-    await db.collection('botowners').createIndex('userId', { unique: true });
     await db.collection('guilds').createIndex('guildId', { unique: true });
   }
 }

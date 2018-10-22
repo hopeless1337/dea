@@ -19,8 +19,8 @@ class Rob extends patron.Command {
           preconditions: ['noself']
         }),
         new patron.Argument({
-          name: 'resource',
-          type: 'quantity',
+          name: 'resources',
+          type: 'cash',
           key: 'resources',
           example: '500',
           preconditionOptions: [{ percent: Constants.config.rob.max }, { minimum: Constants.config.rob.min }],
@@ -31,6 +31,12 @@ class Rob extends patron.Command {
   }
 
   async run(msg, args) {
+    const reader = msg.client.registry.typeReaders.find(x => x.type === 'cash');
+
+    if (reader.inputtedAll) {
+      args.resources = args['resources-all'];
+    }
+
     const roll = Random.roll();
 
     if (roll < Constants.config.rob.odds) {
