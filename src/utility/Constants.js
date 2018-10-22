@@ -105,13 +105,13 @@ class Constants {
 
       regexes: {
         capitalize: /\w\S*/g,
-        escape: /[-[\]{}()*+?.,\/^$|#\s]/g,
-        prefix: /^\\$/
+        escape: /[-[\]{}()*+?.,\\/^$|#\s]/g,
+        prefix: /^\$/
       }
     };
 
     this.guildSettings = {
-      maxPrefix: 2
+      maxPrefix: 1
     };
 
     this.items = {
